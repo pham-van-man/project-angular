@@ -1,0 +1,37 @@
+<div class="row g-3" [formGroup]="createForm">
+  <div class="col-md-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="key" placeholder="Key" required formControlName="key">
+      <label for="key" class="form-label">Key</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="value" placeholder="Value" required formControlName="value">
+      <label for="value" class="form-label">Value</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="ipa" placeholder="IPA" required formControlName="ipa">
+      <label for="ipa" class="form-label">IPA</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-floating">
+      <select class="form-control" id="type" formControlName="type" required>
+        <option value="" disabled selected></option>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+      <label for="type" class="form-label">Chọn loại</label>
+    </div>
+  </div>
+</div>
+<div *ngIf="message$ | async as message" class="alert alert-warning">
+  {{ message }}
+</div>
+<div class="d-flex justify-content-end mt-2">
+  <button class="btn btn-group" (click)="onSubmit()" [disabled]="createForm.invalid || loading">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm me-2 mt-1"></span>Add
+  </button>
+</div>

@@ -1,0 +1,10 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span *ngIf="count <= array.length-1" class="spinner-border spinner-border-sm"></span>
+    <div class="d-flex flex-column align-items-center">
+      <h1>{{ map.label }}</h1>
+      <span class="text-secondary fs-7">{{ map.detail }}</span>
+    </div>
+    <button class="btn btn-group border-black" (click)="closeModal()">Close</button>
+  </div>
+</div>
